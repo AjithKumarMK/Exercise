@@ -17,10 +17,10 @@ public class JavaApplication22 {
     public static void main(String[] args) {
         int a = 18 ;
         if(a>18){
-            System.out.println("you are elligible");
+            System.out.println("hiii");
         }
         else{
-            System.out.println("you are not elligible");
+            System.out.println("hii");
         }
                 
     }
