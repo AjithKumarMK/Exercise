@@ -4,25 +4,52 @@
  * and open the template in the editor.
  */
 package javaapplication22;
+abstract class Pizza {
+    public abstract void prepare();
+}
 
-/**
- *
- * @author Ajith18
- */
-public class JavaApplication22 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        int a = 18 ;
-        if(a>18){
-            System.out.println("hiii");
-        }
-        else{
-            System.out.println("hii");
-        }
-                
+class MargheritaPizza extends Pizza {
+    @Override
+    public void prepare() {
+        System.out.println("Preparing Margherita Pizza...");
     }
-    
+}
+
+class PepperoniPizza extends Pizza {
+    @Override
+    public void prepare() {
+        System.out.println("Preparing Pepperoni Pizza...");
+    }
+}
+
+abstract class PizzaFactory {
+    public abstract Pizza createPizza();
+}
+
+class MargheritaPizzaFactory extends PizzaFactory {
+    @Override
+    public Pizza createPizza() {
+        return new MargheritaPizza();
+    }
+}
+
+class PepperoniPizzaFactory extends PizzaFactory {
+    @Override
+    public Pizza createPizza() {
+        return new PepperoniPizza();
+    }
+}
+
+// Usage
+public class JavaApplication22 {
+    public static void main(String[] args) {
+        PizzaFactory margheritaFactory = new MargheritaPizzaFactory();
+        PizzaFactory pepperoniFactory = new PepperoniPizzaFactory();
+        
+        Pizza margherita = margheritaFactory.createPizza();
+        Pizza pepperoni = pepperoniFactory.createPizza();
+        
+        margherita.prepare();
+        pepperoni.prepare();
+    }
 }
